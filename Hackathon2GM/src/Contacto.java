@@ -4,17 +4,15 @@ public class Contacto {
 	private String nombre;
 	private String telefono;
 	
-	// Constructor
 	public Contacto(String nombre, String telefono) {
 		this.nombre = nombre;
 		this.telefono=telefono;
 	}// Constructor
 	
-	// Constructor solo nombre (para metodo buscarContacto)
 	public Contacto(String nombre) {
 		this.nombre=nombre;
 		this.telefono="";
-	}// Constructor solo nombre
+	}// Constructor
 
 	public String getNombre() {
 		return nombre;
@@ -32,19 +30,17 @@ public class Contacto {
 		this.telefono = telefono;
 	}//setTelefono
 	
-	// Comparacion 
     public boolean esIgualA(Contacto otro) {
-        // Compara los 2 nombres
         if (this.nombre.equalsIgnoreCase(otro.getNombre())) {
-            return true;  // Los nombres coinciden
+            return true;
         } else {
-            return false; // Los nombres son diferentes
-        }
-    }
+            return false; 
+        }//if Else
+    }//esIgualA
 
-    // Metodo toString 
+    
     @Override
     public String toString() {
         return "Nombre: " + nombre + " | Teléfono: " + telefono;
-    }
+    }// Metodo toString 
 }// Contacto

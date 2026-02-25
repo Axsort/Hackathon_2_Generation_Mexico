@@ -1,4 +1,61 @@
+import java.util.Scanner;
 
 public class Menu {
+    private Scanner sc = new Scanner(System.in);
 
-}
+    public void mostrarMenu() {
+        System.out.println("1. Añadir contacto");
+        System.out.println("2. Eliminar contacto");
+        System.out.println("3. Buscar contacto");
+        System.out.println("4. Mostrar todos");
+        System.out.println("5. Espacios libres en tu agenda");
+        System.out.println("6. Salir");
+    }//mostrarMenu
+
+    public void ejecutarOpcion(int opcion, Agenda agenda) {
+        do {
+            switch(opcion) {
+                case 1:
+                    System.out.print("Nombre: ");
+                    String nombre = sc.nextLine();
+                    System.out.print("Teléfono: ");
+                    String telefono = sc.nextLine();
+                    agenda.añadirContacto(nombre, telefono);
+                    break;
+                case 2:
+                    System.out.print("Nombre de contacto a eliminar: ");
+                    nombre = sc.nextLine();
+                    agenda.eliminarContacto(nombre);
+                    break;
+                case 3:
+                    System.out.print("Nombre de contacto a buscar: ");
+                    nombre = sc.nextLine();
+                    Contacto c = agenda.buscarContacto(nombre);
+                    if (c != null) {
+                        System.out.println("Encontrado: " + c);
+                    } else {
+                        System.out.println("No existe ese contacto.");
+                    }//If Else
+                    break;
+                case 4:
+                    agenda.mostrarContactos();
+                    break;
+                case 5:
+                    System.out.println("Te quedan " + agenda.espaciosLibres() + " espacios libres.");
+                    break;
+                case 6:
+                    System.out.println("Saliendo...");
+                    return;
+                default:
+                    System.out.println("Opción inválida.");
+            }//SwitchCase
+            
+            System.out.println("Elige opción (1-6): ");
+            mostrarMenu();
+            opcion = sc.nextInt();
+            sc.nextLine(); 
+        } while (opcion != 6);
+    }//ejecutarOpcion
+
+
+}//Class menu
