@@ -9,7 +9,7 @@ public class Agenda {
         this.contactos = new ArrayList<>();
     }
 
-    // Añadir contacto
+    
     public void añadirContacto(String nombre, String telefono) {
         if (agendaLlena()) {
             System.out.println("La agenda está llena. No se pueden añadir más contactos.");
@@ -25,7 +25,7 @@ public class Agenda {
         System.out.println("Contacto añadido correctamente.");
     }
 
-    // Eliminar contacto
+    
     public void eliminarContacto(String nombre) {
         for (Contacto c : contactos) {
             if (c.getNombre().equalsIgnoreCase(nombre)) {
@@ -37,7 +37,7 @@ public class Agenda {
         System.out.println("No se encontró el contacto '" + nombre + "'.");
     }
 
-    // Buscar contacto (devuelve el objeto Contacto)
+    
     public Contacto buscarContacto(String nombre) {
         for (Contacto c : contactos) {
             if (c.getNombre().equalsIgnoreCase(nombre)) {
@@ -47,24 +47,25 @@ public class Agenda {
         return null;
     }
 
-    // Mostrar todos los contactos
+   
     public void mostrarContactos() {
         if (contactos.isEmpty()) {
             System.out.println("La agenda está vacía.");
         } else {
             for (Contacto c : contactos) {
-                System.out.println(c); // usa toString()
+                System.out.println(c); 
             }
         }
     }
 
-    // Método extra: ¿La agenda está llena?
+    
     public boolean agendaLlena() {
         return contactos.size() >= capacidadMaxima;
     }
 
-    // Método extra: ¿Cuántos espacios libres quedan?
+    
     public int espaciosLibres() {
         return capacidadMaxima - contactos.size();
+        
     }
 }
